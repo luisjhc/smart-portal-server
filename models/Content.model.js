@@ -11,6 +11,9 @@ const contentSchema = new Schema({
   text: {
     type: String,
   },
+  video: {
+    type: String,
+  },
 });
 
 const Content = model("Content", contentSchema);

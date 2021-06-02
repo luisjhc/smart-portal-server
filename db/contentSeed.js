@@ -43,9 +43,8 @@ const contentArr = [
     _In spite of the fact that_ the application is free, few people have downloaded it.  
     _Despite the fact that_ the application is free, few people have downloaded it.  
     Although the fact that the application is free, few people have downloaded it.  
-    Even though the fact that the application is free, few people have downloaded it.
-    
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/nX8N9RiGCZg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
+    Even though the fact that the application is free, few people have downloaded it.`,
+    video: "https://www.youtube.com/watch?v=nX8N9RiGCZg",
   },
   {
     level: "intermediate",
