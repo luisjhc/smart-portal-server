@@ -1,0 +1,18 @@
+const { Schema, model } = require("mongoose");
+const ObjectId = Schema.Types.ObjectId;
+
+const contentSchema = new Schema({
+  level: {
+    type: String,
+  },
+  title: {
+    type: String,
+  },
+  text: {
+    type: String,
+  },
+});
+
+const Content = model("Content", contentSchema);
+
+module.exports = Content;

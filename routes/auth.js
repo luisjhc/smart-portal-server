@@ -36,6 +36,7 @@ router.get("/session", (req, res) => {
 
 router.post("/signup", isLoggedOut, (req, res) => {
   const { username, password } = req.body;
+  console.log("req.body:", req.body);
 
   if (!username) {
     return res

@@ -5,9 +5,28 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
+      unique: true,
+      required: true,
     },
-    password: String,
+    password: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      unique: true,
+    },
+    name: String,
+    profilePic: {
+      type: String,
+      default:
+        "https://res.cloudinary.com/dertdncse/image/upload/v1622613422/smart%20portal/default%20user%20pic/woman_student_gt27uy.png",
+    },
+    role: {
+      type: String,
+      enum: ["teacher", "student"],
+      default: "teacher",
+    },
   },
   {
     timestamps: true,
