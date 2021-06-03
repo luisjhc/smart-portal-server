@@ -14,8 +14,6 @@ const saltRounds = 10;
 const User = require("../models/User.model");
 const Session = require("../models/Session.model");
 
-const isLoggedIn = require("../middleware/isLoggedIn");
-
 router.get("/myPortal", isLoggedIn, (req, res) => {
   Content.find({}).then((allContent) => {
     res.json(allContent);
