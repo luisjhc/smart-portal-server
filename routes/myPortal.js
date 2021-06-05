@@ -5,6 +5,7 @@ const Content = require("../models/Content.model");
 const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
 const saltRounds = 10;
+const sendEmail = require("../utils/sendEmail");
 const User = require("../models/User.model");
 
 // Content (classes) Page
@@ -35,7 +36,7 @@ router.post("/createStudent", isLoggedIn, (req, res) => {
         .json({ errorMessage: "Username or email already taken" });
     }
 
-    return bcryp
+    return bcrypt
       .genSalt(saltRounds)
       .then((salt) => bcrypt.hash(password, salt))
       .then((hashedPassword) => {
@@ -43,6 +44,11 @@ router.post("/createStudent", isLoggedIn, (req, res) => {
           username,
           password: hashedPassword,
           email,
+        });
+      })
+      .then((newUser) => {
+        sendEmail(newUser, password).then((sentEmail) => {
+          res.json({ newUser });
         });
       })
       .catch((error) => {
