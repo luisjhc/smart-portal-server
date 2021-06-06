@@ -17,7 +17,7 @@ router.get("/content", isLoggedIn, (req, res) => {
 
 // Create Student Page
 router.post("/createStudent", isLoggedIn, (req, res) => {
-  const { username, password, email } = req.body;
+  const { firstName, lastName, username, password, email } = req.body;
 
   if (!username || !email) {
     return res.status(400).json({ errorMessage: "Please provide a username." });
@@ -41,6 +41,8 @@ router.post("/createStudent", isLoggedIn, (req, res) => {
       .then((salt) => bcrypt.hash(password, salt))
       .then((hashedPassword) => {
         return User.create({
+          firstName,
+          lastName,
           username,
           password: hashedPassword,
           email,
