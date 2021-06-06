@@ -1,14 +1,13 @@
 const router = require("express").Router();
 const isLoggedIn = require("../middleware/isLoggedIn");
 const Content = require("../models/Content.model");
-
+const User = require("../models/User.model");
 const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
 const saltRounds = 10;
 const sendEmail = require("../utils/sendEmail");
-const User = require("../models/User.model");
 
-// Content (classes) Page
+// Content (classes) Page for teacher
 router.get("/content", isLoggedIn, (req, res) => {
   Content.find({}).then((allContent) => {
     res.json(allContent);
@@ -17,7 +16,7 @@ router.get("/content", isLoggedIn, (req, res) => {
 
 // Create Student Page
 router.post("/createStudent", isLoggedIn, (req, res) => {
-  const { firstName, lastName, username, password, email } = req.body;
+  const { firstName, lastName, username, password, email, level } = req.body;
 
   if (!username || !email) {
     return res.status(400).json({ errorMessage: "Please provide a username." });
@@ -46,6 +45,7 @@ router.post("/createStudent", isLoggedIn, (req, res) => {
           username,
           password: hashedPassword,
           email,
+          level,
         });
       })
       .then((newUser) => {
@@ -73,6 +73,18 @@ router.get("/students", isLoggedIn, (req, res) => {
   User.find({}).then((allStudents) => {
     res.json(allStudents);
   });
+});
+
+// SingleClass Page for student
+router.get("/:singleClass", isLoggedIn, (req, res) => {
+  Content.findById(req.params.singleClass)
+    .then((singleClass) => {
+      res.json(singleClass);
+      //console.log("singleClass:", singleClass);
+    })
+    .catch((err) => {
+      console.log("err:", err);
+    });
 });
 
 module.exports = router;

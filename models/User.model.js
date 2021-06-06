@@ -31,6 +31,11 @@ const userSchema = new Schema(
       enum: ["teacher", "student"],
       default: "student",
     },
+    level: {
+      type: String,
+      enum: ["beginner", "intermediate", "advanced"],
+      default: "beginner",
+    },
   },
   {
     timestamps: true,
