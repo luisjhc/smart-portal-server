@@ -58,14 +58,18 @@ const transporter = nodemailer.createTransport({
 });
 
 function sendEmail(user, password) {
-  return transporter.sendMail({
-    from: '"SMART PORTAL" smartportalapp@gmail.com',
-    to: "smartportalapp@gmail.com",
-    //  to: user.email,
-    subject: "Your account at Smart Portal",
-    text: "Hello world?",
-    html: emailMessage(user.username, password),
-  });
+  return transporter
+    .sendMail({
+      from: '"SMART PORTAL" smartportalapp@gmail.com',
+      to: "smartportalapp@gmail.com",
+      //  to: user.email,
+      subject: "Your account at Smart Portal",
+      text: "Hello world?",
+      html: emailMessage(user.username, password),
+    })
+    .catch((err) => {
+      console.log("err:", err);
+    });
 }
 
 module.exports = sendEmail;

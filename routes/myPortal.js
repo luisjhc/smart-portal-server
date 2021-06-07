@@ -51,6 +51,7 @@ router.post("/createStudent", isLoggedIn, (req, res) => {
       .then((newUser) => {
         sendEmail(newUser, password).then((sentEmail) => {
           res.json({ newUser });
+          console.log("newUser:", newUser);
         });
       })
       .catch((error) => {
@@ -70,9 +71,24 @@ router.post("/createStudent", isLoggedIn, (req, res) => {
 
 // List Of Students Page
 router.get("/students", isLoggedIn, (req, res) => {
-  User.find({}).then((allStudents) => {
-    res.json(allStudents);
-  });
+  User.find({})
+    .then((allStudents) => {
+      res.json(allStudents);
+    })
+    .catch((err) => {
+      console.log("err:", err);
+    });
+});
+
+// Delete Student
+router.get("/students/:id", isLoggedIn, (req, res) => {
+  User.findByIdAndDelete(req.params.id.substring(1))
+    .then(() => {
+      res.json({ message: "Student deleted successfully" });
+    })
+    .catch((err) => {
+      console.log("err:", err);
+    });
 });
 
 // SingleClass Page for student
