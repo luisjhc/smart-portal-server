@@ -52,8 +52,8 @@ function emailMessage(username, password) {
 const transporter = nodemailer.createTransport({
   service: "Gmail",
   auth: {
-    user: "smartportalapp@gmail.com", // generated ethereal user
-    pass: "d9h4GcR?o3$rp5#i", // generated ethereal password d9h4GcR?o3$rp5#i
+    user: process.env.MAILUSER, // generated ethereal user
+    pass: process.env.MAILPASS, // generated ethereal password d9h4GcR?o3$rp5#i
   },
 });
 

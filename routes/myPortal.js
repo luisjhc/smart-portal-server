@@ -51,7 +51,6 @@ router.post("/createStudent", isLoggedIn, (req, res) => {
       .then((newUser) => {
         sendEmail(newUser, password).then((sentEmail) => {
           res.json({ newUser });
-          console.log("newUser:", newUser);
         });
       })
       .catch((error) => {
@@ -83,8 +82,8 @@ router.get("/students", isLoggedIn, (req, res) => {
 // Delete Student
 router.get("/students/:id", isLoggedIn, (req, res) => {
   User.findByIdAndDelete(req.params.id.substring(1))
-    .then(() => {
-      res.json({ message: "Student deleted successfully" });
+    .then((student) => {
+      res.json({ student });
     })
     .catch((err) => {
       console.log("err:", err);
