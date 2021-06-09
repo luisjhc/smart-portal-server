@@ -1,28 +1,52 @@
 const { Schema, model } = require("mongoose");
 const ObjectId = Schema.Types.ObjectId;
 
-const contentSchema = new Schema({
+const exercisesSchema = new Schema({
   level: {
     type: String,
   },
   title: {
     type: String,
   },
-  questionText: {
-    type: String,
-  },
-  answerOptions: [
+  quiz: [
     {
-      answerText: {
+      questionText: {
         type: String,
       },
-      isCorrect: {
-        type: Boolean,
+      answerOptions: [
+        {
+          answerText: {
+            type: String,
+          },
+          isCorrect: {
+            type: Boolean,
+          },
+        },
+      ],
+    },
+  ],
+  audioSource: {
+    type: String,
+  },
+  audioQuiz: [
+    {
+      questionText: {
+        type: String,
       },
+      answerOptions: [
+        {
+          answerText: {
+            type: String,
+          },
+          isCorrect: {
+            type: Boolean,
+          },
+        },
+      ],
     },
   ],
 });
 
-const Content = model("Content", contentSchema);
+const Exercises = model("Exercises", exercisesSchema);
 
-module.exports = Content;
+module.exports = Exercises;
