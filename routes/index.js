@@ -16,4 +16,12 @@ router.use("/myPortal", contentRoutes);
 const profileRoutes = require("./myProfile");
 router.use("/myProfile", profileRoutes);
 
+// Create Student
+const createStudentRoutes = require("./createStudent");
+router.use("/createStudent", createStudentRoutes);
+
+//  List of Students
+const listOfStudentsRoutes = require("./listOfStudents");
+router.use("/listOfStudents", listOfStudentsRoutes);
+
 module.exports = router;

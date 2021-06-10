@@ -14,6 +14,43 @@ const contentSchema = new Schema({
   video: {
     type: String,
   },
+  quiz: [
+    {
+      questionText: {
+        type: String,
+      },
+      answerOptions: [
+        {
+          answerText: {
+            type: String,
+          },
+          isCorrect: {
+            type: Boolean,
+          },
+        },
+      ],
+    },
+  ],
+  audioSource: {
+    type: String,
+  },
+  audioQuiz: [
+    {
+      questionText: {
+        type: String,
+      },
+      answerOptions: [
+        {
+          answerText: {
+            type: String,
+          },
+          isCorrect: {
+            type: Boolean,
+          },
+        },
+      ],
+    },
+  ],
 });
 
 const Content = model("Content", contentSchema);
