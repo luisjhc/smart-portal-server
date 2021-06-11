@@ -54,8 +54,7 @@ const exercisesArr = [
         ],
       },
     ],
-    audioSource:
-      "https://www.ted.com/talks/damon_brown_how_to_choose_your_news/transcript#t-210078",
+    audioSource: "https://www.youtube.com/watch?v=q-Y-z6HmRgI",
     audioQuiz: [
       {
         questionText:

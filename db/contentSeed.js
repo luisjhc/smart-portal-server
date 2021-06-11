@@ -99,8 +99,7 @@ Even though the fact that the application is free, few people have downloaded it
         ],
       },
     ],
-    audioSource:
-      "https://www.ted.com/talks/damon_brown_how_to_choose_your_news/transcript#t-210078",
+    audioSource: "https://www.youtube.com/watch?v=q-Y-z6HmRgI",
     audioQuiz: [
       {
         questionText:
@@ -137,20 +136,118 @@ Even though the fact that the application is free, few people have downloaded it
     ],
   },
   {
-    level: "intermediate",
-    title: "intermediate title",
-    text: `this should be displayed`,
-  },
-  {
     level: "beginner",
-    title: "beginner title",
-    text: `this shouldn't be displayed`,
-  },
-  {
-    level: "beginner",
-    title: "beginner title",
-    text: `If you start typing
-And then press enter, this will not be considered Markdown. Because there is space behind it where there shouldnt be non`,
+    title: "Yes and No Questions vs. Information Questions",
+    image:
+      "https://res.cloudinary.com/dertdncse/image/upload/v1623418941/smart%20portal/audio%20exercises/beginner_yes-no_questions_q1rs2u.png",
+    text: `One of the most important tasks in speaking any language is asking questions. This article will help you learn how to ask and answer questions so you can begin having conversations in English. To help you, questions are divided into categories with a short explanation.
+There are two main types of questions in English: questions that can be answered with a simple yes or no, and questions that require a more detailed response.
+## Yes and No Questions    
+- Are you happy today?. / Yes, I am.
+- Did you have fun at the party. / No, I didn't.
+- Will you come to class tomorrow?. / Yes, I will.   
+## Information Questions    
+Information questions are asked with the question words what, where, when, how, why, and which. These questions require longer answers to provide the specific information requested. Notice that each of these questions are answered with the positive or negative form of the helping verb.
+- Where are you from?. / I'm from Seattle.
+- What did you do on Saturday evening?. / We went to see a film.
+- Why was the class difficult?. / The class was difficult because the teacher didn't explain things well.    
+## Questions With Greetings: Saying Hello    
+Start the conversation with a greeting. Examples include:
+- How are you?
+- How's it going?
+- What's up?
+- How's life?     
+## General Questions   
+General questions are questions we ask to help us start a conversation or keep the conversation going. Here are some common general questions:
+- Where did you go?
+- What did you do [next]?
+- Where were you?
+- Do you have a car/house/children/etc. ?
+- Can you play tennis/golf/football/etc.?
+- Can you speak another language?`,
+    video: "https://www.youtube.com/watch?v=FPTJ5v7Au1A",
+    quiz: [
+      {
+        questionText: "Where are you going?.",
+        answerOptions: [
+          { answerText: "Tomorrow", isCorrect: false },
+          { answerText: "To work", isCorrect: true },
+          { answerText: "Yes, please", isCorrect: false },
+        ],
+      },
+      {
+        questionText: "What do you like to eat?",
+        answerOptions: [
+          { answerText: "No, thank you.", isCorrect: false },
+          { answerText: "Italian food.", isCorrect: true },
+          { answerText: "Yesterday afternoon.", isCorrect: false },
+        ],
+      },
+      {
+        questionText: "Do you like vegetables?.",
+        answerOptions: [
+          { answerText: "No, I don’t.", isCorrect: true },
+          { answerText: "Yes, please.", isCorrect: false },
+          { answerText: "No, thank you.", isCorrect: false },
+        ],
+      },
+      {
+        questionText: "Are you enjoying your time?.",
+        answerOptions: [
+          { answerText: "Yes, I do.", isCorrect: false },
+          { answerText: "No, I don’t.", isCorrect: false },
+          { answerText: "Yes, I am.", isCorrect: true },
+        ],
+      },
+    ],
+    audioSource:
+      "https://res.cloudinary.com/dertdncse/video/upload/v1623415795/smart%20portal/audio%20exercises/A2_eating_out_omq8t6.mp3",
+    audioQuiz: [
+      {
+        questionText: "True or False: The customers want two tables. ",
+        answerOptions: [
+          { answerText: "True", isCorrect: false },
+          { answerText: "False", isCorrect: true },
+        ],
+      },
+      {
+        questionText: "True or False: There are two customers eating together.",
+        answerOptions: [
+          { answerText: "True", isCorrect: true },
+          { answerText: "False", isCorrect: false },
+        ],
+      },
+      {
+        questionText:
+          "True or False: The two customers order the same starter.",
+        answerOptions: [
+          { answerText: "True", isCorrect: false },
+          { answerText: "False", isCorrect: true },
+        ],
+      },
+      {
+        questionText:
+          "True or False: Both customers order the Thai chicken for their main course.",
+        answerOptions: [
+          { answerText: "True", isCorrect: true },
+          { answerText: "False", isCorrect: false },
+        ],
+      },
+      {
+        questionText: "True or False: The customers order cold drinks.",
+        answerOptions: [
+          { answerText: "True", isCorrect: true },
+          { answerText: "False", isCorrect: false },
+        ],
+      },
+      {
+        questionText: "True or False: Both customers order a dessert.",
+        answerOptions: [
+          { answerText: "True", isCorrect: false },
+          { answerText: "False", isCorrect: true },
+        ],
+      },
+    ],
   },
 ];
 
@@ -166,21 +263,3 @@ mongoose
       });
     });
   });
-
-// mongoose
-//   .connect(process.env.MONGODB_URI || "mongodb://localhost/smart-portal")
-//   .then(() => {
-//     console.log("CONNECTED WITH STUFF");
-//     Content.deleteMany({}).then(() => {
-//       contentArr.forEach((content) => {
-//         Exercise.insertMany(content.exercises).then((listOfExercises) => {
-//           const exerId = listOfExercises.map((e) => e._id);
-//           Content.create({ ...content, exercises: exerId }).then(() => {
-//             console.log("ADDED STUFF");
-//             mongoose.disconnect();
-//             console.log("DISCONNECTED STUFF");
-//           });
-//         });
-//       });
-//     });
-//   });

@@ -8,6 +8,9 @@ const contentSchema = new Schema({
   title: {
     type: String,
   },
+  image: {
+    type: String,
+  },
   text: {
     type: String,
   },
