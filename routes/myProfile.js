@@ -18,7 +18,7 @@ router.put(`/update`, isLoggedIn, (req, res) => {
     if (allNotMe.length) {
       // OPPSIE, WE CAN'T UPDATE
       return res.status(400).json({
-        errorMessage: "Username or email is already taken.",
+        errorMessage: "Username or email is already taken 😱",
       });
     }
 
@@ -27,7 +27,10 @@ router.put(`/update`, isLoggedIn, (req, res) => {
       { firstName, lastName, email, username },
       { new: true }
     ).then((newFabulousUser) => {
-      res.json({ user: newFabulousUser });
+      res.json({
+        user: newFabulousUser,
+        message: "Yor Profile was successfully updated 🥳",
+      });
     });
   });
 });
