@@ -165,7 +165,7 @@ General questions are questions we ask to help us start a conversation or keep t
 - Do you have a car/house/children/etc. ?
 - Can you play tennis/golf/football/etc.?
 - Can you speak another language?`,
-    video: "https://www.youtube.com/watch?v=FPTJ5v7Au1A",
+    video: "https://www.youtube.com/watch?v=j9b1CNN_rFU",
     quiz: [
       {
         questionText: "Where are you going?.",

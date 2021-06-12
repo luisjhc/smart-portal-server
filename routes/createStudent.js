@@ -11,7 +11,9 @@ router.post("/", isLoggedIn, (req, res) => {
   const { firstName, lastName, username, password, email, level } = req.body;
 
   if (!username || !email) {
-    return res.status(400).json({ errorMessage: "Please provide a username." });
+    return res.status(400).json({
+      errorMessage: "Please make sure you provide a username and email.",
+    });
   }
 
   if (password.length < 8) {
@@ -42,7 +44,7 @@ router.post("/", isLoggedIn, (req, res) => {
       })
       .then((newUser) => {
         sendEmail(newUser, password).then((sentEmail) => {
-          res.json({ newUser });
+          res.json({ newUser: newUser.username });
         });
       })
       .catch((error) => {

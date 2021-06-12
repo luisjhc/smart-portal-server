@@ -69,7 +69,10 @@ router.put(`/update-password`, isLoggedIn, (req, res) => {
         })
         .then((updatedUser) => {
           console.log("user", updatedUser);
-          res.json({ user: updatedUser });
+          res.json({
+            user: updatedUser,
+            message: "Your Password was successfully updated 🥳",
+          });
         });
     })
     .catch((err) => {
