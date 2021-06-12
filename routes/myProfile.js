@@ -9,7 +9,7 @@ const saltRounds = 10;
 router.put(`/update`, isLoggedIn, (req, res) => {
   // router.put(`/update`, (req, res) => {
 
-  const { firstName, lastName, username, password, email } = req.body;
+  const { firstName, lastName, username, email } = req.body;
 
   User.find({ $or: [{ username }, { email }] }).then((allUsers) => {
     const allNotMe = allUsers.filter(
@@ -27,10 +27,14 @@ router.put(`/update`, isLoggedIn, (req, res) => {
       { firstName, lastName, email, username },
       { new: true }
     ).then((newFabulousUser) => {
-      res.json({
-        user: newFabulousUser,
-        message: "Yor Profile was successfully updated 🥳",
-      });
+      res
+        .json({
+          user: newFabulousUser,
+          message: "Yor Profile was successfully updated 🥳",
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     });
   });
 });
@@ -41,13 +45,13 @@ router.put(`/update-password`, isLoggedIn, (req, res) => {
 
   if (newPassword?.length < 8) {
     return res.status(400).json({
-      errorMessage: "Your password needs to be at least 8 characters long.",
+      errorMessage: "Your password needs to be at least 8 characters long 😱",
     });
   }
 
   if (newPassword !== confirmPassword) {
     return res.status(400).json({
-      errorMessage: "Your password needs to be identical.",
+      errorMessage: "Your password needs to be identical 😱",
     });
   }
 
@@ -57,7 +61,7 @@ router.put(`/update-password`, isLoggedIn, (req, res) => {
       if (!isSamePassword) {
         console.log("is not your password");
         return res.status(400).json({
-          errorMessage: "is not you password",
+          errorMessage: "is not you password 😱",
         });
       }
       return bcrypt
@@ -72,7 +76,10 @@ router.put(`/update-password`, isLoggedIn, (req, res) => {
         })
         .then((updatedUser) => {
           console.log("user", updatedUser);
-          res.json({ user: updatedUser });
+          res.json({
+            user: updatedUser,
+            message: "Yor Password was successfully updated 🥳",
+          });
         });
     })
     .catch((err) => {
@@ -91,10 +98,13 @@ router.post("/uploadPicture/:id", upload.single("profilePic"), (req, res) => {
 
   User.findByIdAndUpdate(id, { profilePic })
     .then(() => {
-      res.json({ picFromServer: profilePic });
+      res.json({
+        picFromServer: profilePic,
+        message: "Yor Profile Picture was successfully updated 🥳",
+      });
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err.message);
     });
 });
 
