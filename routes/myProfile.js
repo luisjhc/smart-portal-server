@@ -27,14 +27,10 @@ router.put(`/update`, isLoggedIn, (req, res) => {
       { firstName, lastName, email, username },
       { new: true }
     ).then((newFabulousUser) => {
-      res
-        .json({
-          user: newFabulousUser,
-          message: "Yor Profile was successfully updated 🥳",
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      res.json({
+        user: newFabulousUser,
+        message: "Yor Profile was successfully updated 🥳",
+      });
     });
   });
 });
@@ -96,16 +92,12 @@ router.post("/uploadPicture/:id", upload.single("profilePic"), (req, res) => {
   const profilePic = req.file.path;
   const id = req.params.id;
 
-  User.findByIdAndUpdate(id, { profilePic })
-    .then(() => {
-      res.json({
-        picFromServer: profilePic,
-        message: "Yor Profile Picture was successfully updated 🥳",
-      });
-    })
-    .catch((err) => {
-      console.log(err.message);
+  User.findByIdAndUpdate(id, { profilePic }).then(() => {
+    res.json({
+      picFromServer: profilePic,
+      message: "Yor Profile Picture was successfully updated 🥳",
     });
+  });
 });
 
 module.exports = router;
