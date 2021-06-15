@@ -12,13 +12,16 @@ router.get("/", isLoggedIn, (req, res) => {
 
 // SingleClass Page for student and teacher
 router.get("/:singleClass", isLoggedIn, (req, res) => {
+  console.log(req.params.singleClass);
+  console.log(req.headers.moms);
   Content.findById(req.params.singleClass)
     .then((singleClass) => {
       res.json(singleClass);
       //console.log("singleClass:", singleClass);
     })
     .catch((err) => {
-      console.log("err:", err);
+      // console.log("err:", err);
+      res.status(500).json("something");
     });
 });
 
@@ -31,6 +34,7 @@ router.get("/exercise/:exercise", isLoggedIn, (req, res) => {
     })
     .catch((err) => {
       console.log("err:", err);
+      res.status(500).json(true);
     });
 });
 
