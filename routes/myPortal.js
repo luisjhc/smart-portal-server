@@ -12,8 +12,8 @@ router.get("/", isLoggedIn, (req, res) => {
 
 // SingleClass Page for student and teacher
 router.get("/:singleClass", isLoggedIn, (req, res) => {
-  console.log(req.params.singleClass);
-  console.log(req.headers.moms);
+  // console.log(req.params.singleClass);
+  // console.log(req.headers.moms);
   Content.findById(req.params.singleClass)
     .then((singleClass) => {
       res.json(singleClass);
