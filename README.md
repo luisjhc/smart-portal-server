@@ -28,6 +28,8 @@
 
 - to practice your skills with various exercices.
 
+![logo](/img/logo3.png)
+
 **[ &#127891; Link to the website](https://smart-portal.netlify.app/)**
 
 #### :copyright: Created by
