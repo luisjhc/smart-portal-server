@@ -60,7 +60,7 @@ const transporter = nodemailer.createTransport({
 function sendEmail(user, password) {
   return transporter
     .sendMail({
-      from: '"SMART PORTAL" smartportalapp@gmail.com',
+      from: '"SMART PORTAL" process.env.MAILUSER',
       to: "smartportalapp@gmail.com",
       //  to: user.email,
       subject: "Your account at Smart Portal",
