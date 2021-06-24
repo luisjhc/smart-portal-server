@@ -61,8 +61,8 @@ function sendEmail(user, password) {
   return transporter
     .sendMail({
       from: '"SMART PORTAL" process.env.MAILUSER',
-      to: "smartportalapp@gmail.com",
-      //  to: user.email,
+      //to: "smartportalapp@gmail.com",
+      to: user.email,
       subject: "Your account at Smart Portal",
       text: "Hello world?",
       html: emailMessage(user.username, password),
