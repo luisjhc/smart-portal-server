@@ -22,13 +22,13 @@
 
 ### &#128104;&#8205;&#127891; Create a Student account:
 
-- to receive a gateaway to the personalized learning platform.
+- to receive a gateway to the personalized learning platform.
 
 - to navigate through the content, that corresponds your level. &#9968;&#65039;
 
 - to practice your skills with various exercices.
 
-![logo](/img/logo3.png)
+![logo](/img/logo-final.png)
 
 **[ &#127891; Link to the website](https://smart-portal.netlify.app/)**
 
@@ -46,6 +46,7 @@ as Final Project at Ironhack.
 - ExpressJS
 - NodeJS
 - MongoDB
+- Axios
 - HTML & CSS
 - Ironlauncher
 - Love, Fun and Patience
