@@ -36,7 +36,7 @@ router.get("/session", (req, res) => {
 
 router.post("/signup", isLoggedOut, (req, res) => {
   const { firstName, lastName, username, password, email, role } = req.body;
-  console.log("req.body:", req.body);
+  // console.log("req.body:", req.body);
 
   if (!username || !email || !firstName || !lastName || !role) {
     return res.status(400).json({
@@ -96,7 +96,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         });
       })
       .catch((error) => {
-        console.log("error:", error);
+        // console.log("error:", error);
         if (error instanceof mongoose.Error.ValidationError) {
           return res.status(400).json({ errorMessage: error.message });
         }
@@ -163,7 +163,7 @@ router.delete("/logout", isLoggedIn, (req, res) => {
       res.status(200).json({ message: "User was logged out" });
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
       res.status(500).json({ errorMessage: err.message });
     });
 });

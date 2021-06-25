@@ -34,7 +34,7 @@ function emailMessage(username, password) {
     <h1>WELCOME TO SMART PORTAL</h1>
     <p>
       Hello student, your account has been created in smart portal.
-      You can log in <a href="http://localhost:3000/auth/login">here</a>, using your credentials:
+      You can log in <a href="https://smart-portal.netlify.app/">here</a>, using your credentials:
       <br>
       username: ${username}
       <br>
